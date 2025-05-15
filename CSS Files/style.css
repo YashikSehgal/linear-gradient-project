@@ -1,0 +1,133 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+    background-image: linear-gradient(to right, rgb(92, 145, 229), rgb(152, 63, 198));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section {
+    position: relative; /* Enable positioning for the gradient */
+    border-radius: 20px; /* Increased roundness */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow for a floating effect */
+    padding: 40px; /* Increased padding */
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    overflow: hidden; /* Ensure child elements don’t overflow */
+    transition: transform 0.3s; /* Smooth scale on hover */
+}
+
+section:hover {
+    transform: scale(1.02); /* Slightly grow the section on hover */
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to right, rgba(92, 145, 229, 0.5), rgba(152, 63, 198, 0.5)); /* Gradient overlay */
+    border-radius: 20px; /* Match border-radius */
+    z-index: 0; /* Place it behind other content */
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.5em; /* Slightly larger font size */
+    animation: fadeIn 0.5s ease; /* Fade-in animation */
+    position: relative; /* Ensure it's above the gradient */
+    z-index: 1; /* Place it above the gradient */
+}
+
+.copyCode {
+    background-color: rgba(233, 236, 239, 0.8); /* Slightly darker for visibility */
+    border: none; /* No border for a cleaner look */
+    border-radius: 10px; /* Increased roundness */
+    padding: 15px;
+    margin: 20px 0;
+    font-family: 'Courier New', Courier, monospace;
+    color: #495057;
+    text-align: center;
+    font-size: 1.2em;
+    transition: transform 0.3s, background-color 0.3s; /* Add background color transition */
+    position: relative; /* Ensure it's above the gradient */
+    z-index: 1; /* Place it above the gradient */
+}
+
+.copyCode:hover {
+    transform: scale(1.03); /* Slight zoom on hover */
+    background-color: rgba(233, 236, 239, 1); /* Solid color on hover */
+}
+
+button {
+    color: white;
+    border: none;
+    border-radius: 12px; /* Increased roundness */
+    padding: 15px 30px; /* Adjusted padding */
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+    font-size: 16px;
+    position: relative; /* For the animation effect */
+    overflow: hidden; /* Contain the pseudo-element */
+    z-index: 1; /* Place it above the gradient */
+}
+
+button:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%; /* Large pseudo-element for ripple effect */
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2); /* Light effect */
+    border-radius: 50%; /* Circular shape */
+    transform: translate(-50%, -50%) scale(0); /* Initially hidden */
+    transition: transform 0.5s; /* Smooth transition */
+}
+
+button:hover:before {
+    transform: translate(-50%, -50%) scale(1); /* Show ripple effect on hover */
+}
+
+#myButton {
+    background-color: rgb(92, 145, 229);
+}
+
+#myButton:hover {
+    background-color: rgb(70, 115, 189);
+    transform: scale(1.05); /* Button scale on hover */
+}
+
+#myButton2 {
+    background-color: rgb(152, 63, 198);
+}
+
+#myButton2:hover {
+    background-color: rgb(123, 50, 158);
+    transform: scale(1.05); /* Button scale on hover */
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Fade-in animation for elements */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
